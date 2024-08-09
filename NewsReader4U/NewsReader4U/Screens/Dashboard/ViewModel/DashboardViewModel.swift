@@ -42,6 +42,8 @@ class DashboardViewModel: ObservableObject {
     }
     
     func refreshArticles() {
+        let categoryName = getCategoryName(for: selectedCategoryID)
+        analyticsFacade?.logEvent(AppEvent.refreshedNews(categoryName: categoryName))
         fetchArticles(for: selectedCategoryID)
     }
     
@@ -59,7 +61,13 @@ class DashboardViewModel: ObservableObject {
     private func onCategoryChange(_ categoryID: Int) {
         guard let category = getCategory(by: categoryID) else { return }
         print("Category selected: \(category.displayName)")
+        analyticsFacade?.logEvent(AppEvent.categorySelected(categoryName: category.displayName))
         fetchArticles(for: categoryID)
+    }
+    
+    private func getCategoryName(for categoryID: Int) -> String {
+        guard let category = getCategory(by: categoryID) else { return "" }
+        return category.displayName
     }
     
     private func fetchArticles(for categoryId: Int) {

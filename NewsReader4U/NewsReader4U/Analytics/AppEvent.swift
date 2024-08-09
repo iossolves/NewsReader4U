@@ -9,8 +9,8 @@ import Foundation
 
 enum AppEvent: AnalyticsEvent {
     case categorySelected(categoryName: String)
-    case articleViewed(articleId: String)
-    case refreshedNews(source: String)
+    case articleViewed(articleName: String)
+    case refreshedNews(categoryName: String)
     
     var name: String {
         switch self {
@@ -29,8 +29,8 @@ enum AppEvent: AnalyticsEvent {
             return EventParameterBuilder.buildCategorySelectedParameters(categoryName: categoryName)
         case .articleViewed(let articleName):
             return EventParameterBuilder.buildArticleViewedParameters(articleName: articleName)
-        case .refreshedNews(let categoryName):
-            return EventParameterBuilder.buildRefreshedNewsParameters(categoryName: categoryName)
+        case .refreshedNews(let categoryID):
+            return EventParameterBuilder.buildRefreshedNewsParameters(categoryName: categoryID)
         }
     }
 }
