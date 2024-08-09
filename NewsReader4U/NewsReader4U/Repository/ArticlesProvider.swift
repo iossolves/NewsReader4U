@@ -9,8 +9,8 @@ import Combine
 import Foundation
 
 class ArticlesProvider: ArticlesRepository {
+    let newsService = NewsService()
     func getArticles(for category: String, countryCode: String) -> AnyPublisher<[Article], Error> {
-        let newsService = NewsService()
         return newsService.getTopHeadlines(category: category, countryCode: countryCode)
             .map { $0.articles }
             .eraseToAnyPublisher()
