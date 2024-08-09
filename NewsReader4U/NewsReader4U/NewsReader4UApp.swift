@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct NewsReader4UApp: App {
+struct NewsReaderLocalApp: App {
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DashboardView()
         }
     }
 }
