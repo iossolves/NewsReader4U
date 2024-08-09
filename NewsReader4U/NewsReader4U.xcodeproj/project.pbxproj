@@ -31,6 +31,13 @@
 		AA89AD052C65DEBF00E326B4 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89AD042C65DEBF00E326B4 /* ArticleDetailView.swift */; };
 		AA89AD072C65DEE600E326B4 /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89AD062C65DEE600E326B4 /* ArticleDetailViewModel.swift */; };
 		AA89AD0A2C65E47600E326B4 /* articles.json in Resources */ = {isa = PBXBuildFile; fileRef = AA89AD092C65E47600E326B4 /* articles.json */; };
+		AA89AD0E2C661A6700E326B4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AA89AD0D2C661A6700E326B4 /* FirebaseAnalytics */; };
+		AA89AD102C661A6700E326B4 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = AA89AD0F2C661A6700E326B4 /* FirebaseAnalyticsOnDeviceConversion */; };
+		AA89AD122C661A6700E326B4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = AA89AD112C661A6700E326B4 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		AA89AD142C662C0500E326B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA89AD132C662C0500E326B4 /* GoogleService-Info.plist */; };
+		AA89AD172C66576600E326B4 /* AnalyticsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89AD162C66576600E326B4 /* AnalyticsFacade.swift */; };
+		AA89AD192C665DCF00E326B4 /* FirebaseAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89AD182C665DCF00E326B4 /* FirebaseAnalytics.swift */; };
+		AA89AD1B2C665E2D00E326B4 /* AppEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89AD1A2C665E2D00E326B4 /* AppEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +85,10 @@
 		AA89AD042C65DEBF00E326B4 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		AA89AD062C65DEE600E326B4 /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
 		AA89AD092C65E47600E326B4 /* articles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = articles.json; sourceTree = "<group>"; };
+		AA89AD132C662C0500E326B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA89AD162C66576600E326B4 /* AnalyticsFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFacade.swift; sourceTree = "<group>"; };
+		AA89AD182C665DCF00E326B4 /* FirebaseAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalytics.swift; sourceTree = "<group>"; };
+		AA89AD1A2C665E2D00E326B4 /* AppEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA89AD0E2C661A6700E326B4 /* FirebaseAnalytics in Frameworks */,
+				AA89AD122C661A6700E326B4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				AA89AD102C661A6700E326B4 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,8 +142,9 @@
 		AA89ACAE2C65CCFF00E326B4 /* NewsReader4U */ = {
 			isa = PBXGroup;
 			children = (
-				AA89AD082C65E46900E326B4 /* Resources */,
 				AA89ACAF2C65CCFF00E326B4 /* NewsReader4UApp.swift */,
+				AA89AD152C66575700E326B4 /* Analytics */,
+				AA89AD082C65E46900E326B4 /* Resources */,
 				AA89ACF12C65DB4900E326B4 /* Network */,
 				AA89ACE82C65DA9500E326B4 /* Repository */,
 				AA89ACE52C65D6E000E326B4 /* Common */,
@@ -269,9 +284,20 @@
 		AA89AD082C65E46900E326B4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA89AD132C662C0500E326B4 /* GoogleService-Info.plist */,
 				AA89AD092C65E47600E326B4 /* articles.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA89AD152C66575700E326B4 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				AA89AD162C66576600E326B4 /* AnalyticsFacade.swift */,
+				AA89AD182C665DCF00E326B4 /* FirebaseAnalytics.swift */,
+				AA89AD1A2C665E2D00E326B4 /* AppEvent.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +316,11 @@
 			dependencies = (
 			);
 			name = NewsReader4U;
+			packageProductDependencies = (
+				AA89AD0D2C661A6700E326B4 /* FirebaseAnalytics */,
+				AA89AD0F2C661A6700E326B4 /* FirebaseAnalyticsOnDeviceConversion */,
+				AA89AD112C661A6700E326B4 /* FirebaseAnalyticsWithoutAdIdSupport */,
+			);
 			productName = NewsReader4U;
 			productReference = AA89ACAC2C65CCFF00E326B4 /* NewsReader4U.app */;
 			productType = "com.apple.product-type.application";
@@ -362,6 +393,9 @@
 				Base,
 			);
 			mainGroup = AA89ACA32C65CCFF00E326B4;
+			packageReferences = (
+				AA89AD0C2C661A6700E326B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AA89ACAD2C65CCFF00E326B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -379,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA89ACB72C65CD0100E326B4 /* Preview Assets.xcassets in Resources */,
+				AA89AD142C662C0500E326B4 /* GoogleService-Info.plist in Resources */,
 				AA89AD0A2C65E47600E326B4 /* articles.json in Resources */,
 				AA89ACB42C65CD0100E326B4 /* Assets.xcassets in Resources */,
 			);
@@ -412,12 +447,15 @@
 				AA89ACF32C65DB5400E326B4 /* NetworkManager.swift in Sources */,
 				AA89AD012C65DD3000E326B4 /* ArticleRowView.swift in Sources */,
 				AA89ACFD2C65DCD500E326B4 /* CategoriesSelectionView.swift in Sources */,
+				AA89AD1B2C665E2D00E326B4 /* AppEvent.swift in Sources */,
 				AA89ACEA2C65DAA900E326B4 /* CategoriesRepository.swift in Sources */,
 				AA89ACF52C65DB6A00E326B4 /* NewsService.swift in Sources */,
 				AA89ACEC2C65DAB400E326B4 /* CategoriesProvider.swift in Sources */,
+				AA89AD192C665DCF00E326B4 /* FirebaseAnalytics.swift in Sources */,
 				AA89AD052C65DEBF00E326B4 /* ArticleDetailView.swift in Sources */,
 				AA89ACB02C65CCFF00E326B4 /* NewsReader4UApp.swift in Sources */,
 				AA89ACF02C65DAE800E326B4 /* ArticlesProvider.swift in Sources */,
+				AA89AD172C66576600E326B4 /* AnalyticsFacade.swift in Sources */,
 				AA89ACF82C65DC5600E326B4 /* DashboardViewModel.swift in Sources */,
 				AA89AD072C65DEE600E326B4 /* ArticleDetailViewModel.swift in Sources */,
 				AA89ACE42C65D65E00E326B4 /* ArticleCategory.swift in Sources */,
@@ -583,6 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NewsReader4U/Preview Content\"";
@@ -599,8 +638,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.solves.ios.NewsReader4U;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solves.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -612,6 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NewsReader4U/Preview Content\"";
@@ -628,8 +669,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.solves.ios.NewsReader4U;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solves.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -752,6 +794,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA89AD0C2C661A6700E326B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA89AD0D2C661A6700E326B4 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA89AD0C2C661A6700E326B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		AA89AD0F2C661A6700E326B4 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA89AD0C2C661A6700E326B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		AA89AD112C661A6700E326B4 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA89AD0C2C661A6700E326B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AA89ACA42C65CCFF00E326B4 /* Project object */;
 }
