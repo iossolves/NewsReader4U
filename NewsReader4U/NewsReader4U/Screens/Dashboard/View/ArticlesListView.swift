@@ -19,5 +19,8 @@ struct ArticlesListView: View {
             }
         }
         .listStyle(.plain)
+        .refreshable {
+            viewModel.refreshArticles()
+        }
     }
 }

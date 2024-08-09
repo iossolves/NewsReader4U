@@ -38,6 +38,10 @@ class DashboardViewModel: ObservableObject {
         }
     }
     
+    func refreshArticles() {
+        fetchArticles(for: selectedCategoryID)
+    }
+    
     private func observeSelectedCategoryChanges() {
         $selectedCategoryID
             .sink { [weak self] newSelection in
