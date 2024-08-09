@@ -10,7 +10,7 @@ import Foundation
 
 class DashboardViewModel: ObservableObject {
     
-    @Published var selectedCategoryID: Int = 1
+    @Published var selectedCategoryID = 1
     @Published var categories: [ArticleCategory] = []
     @Published var articles: [Article] = []
     @Published var isLoading = false

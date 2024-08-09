@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				AA89ACAF2C65CCFF00E326B4 /* NewsReader4UApp.swift */,
-				AA89ACF12C65DB4900E326B4 /* Netwrok */,
+				AA89ACF12C65DB4900E326B4 /* Network */,
 				AA89ACE82C65DA9500E326B4 /* Repository */,
 				AA89ACE52C65D6E000E326B4 /* Common */,
 				AA89ACD92C65D57800E326B4 /* Screens */,
@@ -219,13 +219,13 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		AA89ACF12C65DB4900E326B4 /* Netwrok */ = {
+		AA89ACF12C65DB4900E326B4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				AA89ACF22C65DB5400E326B4 /* NetworkManager.swift */,
 				AA89ACF42C65DB6A00E326B4 /* NewsService.swift */,
 			);
-			path = Netwrok;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		AA89ACF62C65DC4500E326B4 /* ViewModel */ = {
