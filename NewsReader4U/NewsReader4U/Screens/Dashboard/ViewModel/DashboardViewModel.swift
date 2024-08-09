@@ -14,7 +14,6 @@ class DashboardViewModel: ObservableObject {
     @Published var categories: [ArticleCategory] = []
     @Published var articles: [Article] = []
     @Published var isLoading = false
-    @Published var navigateToBookmarks: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     private var categoriesRepository: CategoriesRepository
@@ -37,10 +36,6 @@ class DashboardViewModel: ObservableObject {
                 strongSelf.fetchArticles(for: strongSelf.selectedCategoryID)
             }
         }
-    }
-    
-    func onBookmarkToggle(_ article: Article) {
-        fetchArticles(for: selectedCategoryID)
     }
     
     private func observeSelectedCategoryChanges() {

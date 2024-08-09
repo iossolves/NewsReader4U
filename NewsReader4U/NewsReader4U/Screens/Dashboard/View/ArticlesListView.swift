@@ -13,7 +13,10 @@ struct ArticlesListView: View {
     
     var body: some View {
         List(viewModel.articles) { article in
-            ArticleRowView(article: article)
+            NavigationLink(destination: ArticleDetailView(viewModel:
+                                                            ArticleDetailViewModel(article: article))) {
+                ArticleRowView(article: article)
+            }
         }
         .listStyle(.plain)
     }
