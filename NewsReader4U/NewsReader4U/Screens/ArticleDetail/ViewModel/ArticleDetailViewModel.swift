@@ -12,8 +12,9 @@ class ArticleDetailViewModel: ObservableObject {
     
     @Published var article: Article
     
-    init(article: Article) {
+    init(article: Article, analyticsFacade: AnalyticsFacade? = nil) {
         self.article = article
+        analyticsFacade?.logEvent(AppEvent.articleViewed(articleName: article.title ?? ""))
     }
     
     func openArticleUrl() {

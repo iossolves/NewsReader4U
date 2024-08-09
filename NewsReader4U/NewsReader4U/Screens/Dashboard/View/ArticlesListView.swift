@@ -14,7 +14,7 @@ struct ArticlesListView: View {
     var body: some View {
         List(viewModel.articles) { article in
             NavigationLink(destination: ArticleDetailView(viewModel:
-                                                            ArticleDetailViewModel(article: article))) {
+                                                            ArticleDetailViewModel(article: article, analyticsFacade: viewModel.analyticsFacade))) {
                 ArticleRowView(article: article)
             }
         }
