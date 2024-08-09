@@ -27,10 +27,10 @@ enum AppEvent: AnalyticsEvent {
         switch self {
         case .categorySelected(let categoryName):
             return EventParameterBuilder.buildCategorySelectedParameters(categoryName: categoryName)
-        case .articleViewed(let articleId):
-            return EventParameterBuilder.buildArticleViewedParameters(articleId: articleId)
-        case .refreshedNews(let source):
-            return EventParameterBuilder.buildRefreshedNewsParameters(source: source)
+        case .articleViewed(let articleName):
+            return EventParameterBuilder.buildArticleViewedParameters(articleName: articleName)
+        case .refreshedNews(let categoryName):
+            return EventParameterBuilder.buildRefreshedNewsParameters(categoryName: categoryName)
         }
     }
 }
@@ -40,11 +40,11 @@ private struct EventParameterBuilder {
         return ["category_name": categoryName]
     }
     
-    static func buildArticleViewedParameters(articleId: String) -> [String: Any] {
-        return ["article_id": articleId]
+    static func buildArticleViewedParameters(articleName: String) -> [String: Any] {
+        return ["article_name": articleName]
     }
     
-    static func buildRefreshedNewsParameters(source: String) -> [String: Any] {
-        return ["source": source]
+    static func buildRefreshedNewsParameters(categoryName: String) -> [String: Any] {
+        return ["category_name": categoryName]
     }
 }

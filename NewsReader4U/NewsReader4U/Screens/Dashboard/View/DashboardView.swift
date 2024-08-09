@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DashboardView: View {
     
-    @StateObject private var viewModel = DashboardViewModel(categoriesRepository: CategoriesProvider(), articlesRepository: ArticlesProvider())
+    @Environment(\.analyticsFacade) var analyticsFacade
+    @StateObject private var viewModel: DashboardViewModel = DashboardViewModel(categoriesRepository: CategoriesProvider(), articlesRepository: ArticlesProvider())
     
     var body: some View {
         NavigationStack {
@@ -27,6 +28,11 @@ struct DashboardView: View {
                         .background(Color.white)
                 }
                 Spacer()
+            }
+            .onAppear {
+                if viewModel.analyticsFacade == nil {
+                    viewModel.analyticsFacade = self.analyticsFacade
+                }
             }
             .navigationBarTitle("Latest News")
         }

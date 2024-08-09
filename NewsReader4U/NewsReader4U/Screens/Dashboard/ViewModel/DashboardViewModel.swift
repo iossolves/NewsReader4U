@@ -18,11 +18,14 @@ class DashboardViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private var categoriesRepository: CategoriesRepository
     private var articlesRepository: ArticlesRepository
+    var analyticsFacade: AnalyticsFacade?
     
     init(categoriesRepository: CategoriesRepository,
-         articlesRepository: ArticlesRepository) {
+         articlesRepository: ArticlesRepository,
+         analyticsFacade: AnalyticsFacade? = nil) {
         self.categoriesRepository = categoriesRepository
         self.articlesRepository = articlesRepository
+        self.analyticsFacade = analyticsFacade
         fetchCategories()
         observeSelectedCategoryChanges()
     }
