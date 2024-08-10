@@ -32,7 +32,7 @@ class MockAnalyticsFacade: AnalyticsFacade {
     var didLogEvent = false
     var loggedEventName: String?
     
-    func logEvent(_ event: AppEvent) {
+    override func logEvent(_ event: AnalyticsEvent) {
         didLogEvent = true
         loggedEventName = event.name
     }
