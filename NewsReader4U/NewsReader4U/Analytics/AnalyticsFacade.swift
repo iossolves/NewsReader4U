@@ -27,3 +27,13 @@ class AnalyticsFacade {
         strategies.forEach { $0.logEvent(event) }
     }
 }
+
+class MockAnalyticsFacade: AnalyticsFacade {
+    var didLogEvent = false
+    var loggedEventName: String?
+    
+    func logEvent(_ event: AppEvent) {
+        didLogEvent = true
+        loggedEventName = event.name
+    }
+}

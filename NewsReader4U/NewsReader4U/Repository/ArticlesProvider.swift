@@ -18,8 +18,12 @@ class ArticlesProvider: ArticlesRepository {
 }
 
 class MockArticlesProvider: ArticlesRepository {
+    var didCallGetArticles = false
+    var requestedCategoryName: String?
     
     func getArticles(for category: String, countryCode: String) -> AnyPublisher<[Article], Error> {
+        didCallGetArticles = true
+        requestedCategoryName = category
         return JSONReader.getArticlesFromJSON()
             .map { $0 }
             .eraseToAnyPublisher()

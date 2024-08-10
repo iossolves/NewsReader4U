@@ -20,7 +20,7 @@ final class DashboardViewModelTests: XCTestCase {
         super.setUp()
         mockCategoriesRepository = MockCategoriesProvider()
         mockArticlesRepository = MockArticlesProvider()
-        viewModel = DashboardViewModel(categoriesRepository: MockCategoriesProvider(), articlesRepository: MockArticlesProvider())
+        viewModel = DashboardViewModel(categoriesRepository: mockCategoriesRepository, articlesRepository: mockArticlesRepository)
         cancellables = []
     }
 
@@ -39,6 +39,10 @@ final class DashboardViewModelTests: XCTestCase {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertEqual(self.viewModel.categories.count, 4, "DashboardViewModel's fetchCategories() error.")
+            XCTAssertEqual(self.viewModel.selectedCategoryID, 1, "Selected category ID should be 1 by default")
+            XCTAssertTrue(self.mockArticlesRepository.didCallGetArticles, "getArticles(for:) should be called")
+            XCTAssertEqual(self.mockArticlesRepository.requestedCategoryName, "business", "getArticles(for:) should be called with the correct category name")
+
             expectation.fulfill()
         }
         
