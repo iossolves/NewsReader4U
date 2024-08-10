@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArticleDetailView: View {
+    @Environment(\.analyticsFacade) var analyticsFacade
     @ObservedObject var viewModel: ArticleDetailViewModel
     
     var body: some View {
@@ -77,5 +78,11 @@ struct ArticleDetailView: View {
         }
         .padding()
         .navigationBarTitle(viewModel.article.displayTitle)
+        .onAppear() {
+            if (viewModel.analyticsFacade == nil) {
+                viewModel.analyticsFacade = analyticsFacade
+            }
+            viewModel.sendAnalyticsForDetailViewVisit()
+        }
     }
 }

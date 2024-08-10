@@ -11,9 +11,13 @@ import UIKit
 class ArticleDetailViewModel: ObservableObject {
     
     @Published var article: Article
+    var analyticsFacade: AnalyticsFacade?
     
-    init(article: Article, analyticsFacade: AnalyticsFacade? = nil) {
+    init(article: Article) {
         self.article = article
+    }
+    
+    func sendAnalyticsForDetailViewVisit() {
         analyticsFacade?.logEvent(AppEvent.articleViewed(articleName: article.title ?? ""))
     }
     
