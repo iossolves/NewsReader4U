@@ -34,19 +34,17 @@ final class DashboardViewModelTests: XCTestCase {
     
     func testFetchCategoriesUpdatesCategoriesAndFetchesArticles() {
         viewModel.fetchCategories()
-        
         let expectation = XCTestExpectation(description: "Wait for fetchCategories to complete")
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertEqual(self.viewModel.categories.count, 4, "DashboardViewModel's fetchCategories() error.")
             XCTAssertEqual(self.viewModel.selectedCategoryID, 1, "Selected category ID should be 1 by default")
             XCTAssertTrue(self.mockArticlesRepository.didCallGetArticles, "getArticles(for:) should be called")
             XCTAssertEqual(self.mockArticlesRepository.requestedCategoryName, "business", "getArticles(for:) should be called with the correct category name")
-
+            XCTAssertEqual(self.viewModel.articles.count, 12, "DashboardViewModel's fetchArticles() error.")
+            XCTAssertFalse(self.viewModel.isLoading, "DashboardViewModel should set isLoading to false after fetching articles.")
             expectation.fulfill()
         }
-        
-        wait(for: [expectation], timeout: 2.0)
+        wait(for: [expectation], timeout: 4.0)
     }
 
 }
